@@ -35,6 +35,10 @@ public class Person extends BaseEntity {
 	@NotBlank
 	private String lastName;
 
+	@Column(name = "attitude")
+	@NotBlank
+	private String attitude;
+
 	public String getFirstName() {
 		return this.firstName;
 	}
@@ -51,4 +55,11 @@ public class Person extends BaseEntity {
 		this.lastName = lastName;
 	}
 
+	public String getAttitude() {
+		return this.firstName;
+	}
+
+	public void setAttitude(String attitude) {
+		this.attitude = attitude;
+	}
 }
