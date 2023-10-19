@@ -15,6 +15,8 @@
  */
 package org.springframework.samples.petclinic.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotBlank;
@@ -27,6 +29,9 @@ import jakarta.validation.constraints.NotBlank;
 @MappedSuperclass
 public class Person extends BaseEntity {
 
+	@Autowired
+	Attitude attitude;
+
 	@Column(name = "first_name")
 	@NotBlank
 	private String firstName;
@@ -34,6 +39,10 @@ public class Person extends BaseEntity {
 	@Column(name = "last_name")
 	@NotBlank
 	private String lastName;
+
+	@Column(name = "temper")
+	@NotBlank
+	private String temper;
 
 	public String getFirstName() {
 		return this.firstName;
@@ -51,4 +60,11 @@ public class Person extends BaseEntity {
 		this.lastName = lastName;
 	}
 
+	public String getTemper() {
+		return this.temper;
+	}
+
+	public void setTemper(String temper) {
+		this.attitude.temper = temper;
+	}
 }
